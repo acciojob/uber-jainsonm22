@@ -42,8 +42,8 @@ public class DriverServiceImpl implements DriverService {
 	   cabRepository3.delete(cab);
 		List<TripBooking> tripBookingList =driver.getTripBookingList();
 		for(TripBooking tripBooking:tripBookingList){
-			if(tripBooking.getTripStatus()== TripStatus.CONFIRMED){
-				tripBooking.setTripStatus(TripStatus.CANCELED);
+			if(tripBooking.getStatus()== TripStatus.CONFIRMED){
+				tripBooking.setStatus(TripStatus.CANCELED);
 			}
 		}
 		driverRepository3.delete(driver);

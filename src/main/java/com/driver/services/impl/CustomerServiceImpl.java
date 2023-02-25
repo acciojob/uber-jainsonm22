@@ -36,8 +36,8 @@ public class CustomerServiceImpl implements CustomerService {
 		Customer customer=customerRepository2.findById(customerId).get();
 		List<TripBooking> tripBookingList=customer.getTripBookingList();
 		for(TripBooking tripBooking:tripBookingList){
-			if(tripBooking.getTripStatus()==TripStatus.CONFIRMED){
-				tripBooking.setTripStatus(TripStatus.CANCELED);
+			if(tripBooking.getStatus()==TripStatus.CONFIRMED){
+				tripBooking.setStatus(TripStatus.CANCELED);
 			}
 
 		}
@@ -55,7 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
 		List<Driver> driverList =driverRepository2.findAll();
 		for(Driver driver1: driverList){
 			if(driver1.getCab().getAvailable()==true){
-				if(driver== null ||(driver.getDriverID() >driver1.getDriverID()))
+				if(driver== null ||(driver.getDriverId() >driver1.getDriverId()))
 				{
 					driver=driver1;
 				}
@@ -68,9 +68,9 @@ public class CustomerServiceImpl implements CustomerService {
 		Customer customer=customerRepository2.findById(customerId).get();
 		tripBooking.setCustomer(customer);
 		tripBooking.setDriver(driver);
-		tripBooking.setFromLoaction(fromLocation);
+		tripBooking.setFromLocation(fromLocation);
 		tripBooking.setToLocation(toLocation);
-		tripBooking.setTripStatus(TripStatus.CONFIRMED);
+		tripBooking.setStatus(TripStatus.CONFIRMED);
 		driver.getCab().setAvailable(false);
 		tripBooking.setDistanceInKm(distanceInKm);
 		int rate =driver.getCab().getPerKmRate();
@@ -86,7 +86,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public void cancelTrip(Integer tripId){
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
 		TripBooking tripBooking=tripBookingRepository2.findById(tripId).get();
-		tripBooking.setTripStatus(TripStatus.CANCELED);
+		tripBooking.setStatus(TripStatus.CANCELED);
         tripBooking.setBill(0);
 		tripBooking.getDriver().getCab().setAvailable(true);
 		tripBookingRepository2.save(tripBooking);
@@ -98,7 +98,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public void completeTrip(Integer tripId){
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 		TripBooking tripBooking=tripBookingRepository2.findById(tripId).get();
-		tripBooking.setTripStatus(TripStatus.COMPLETED);
+		tripBooking.setStatus(TripStatus.COMPLETED);
 		int distance=tripBooking.getDistanceInKm();
 
 		Driver driver= tripBooking.getDriver();

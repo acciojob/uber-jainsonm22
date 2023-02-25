@@ -8,14 +8,14 @@ public class TripBooking{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int TripBookingId;
 
-    private String fromLoaction;
+    private String FromLocation;
     private String toLocation;
 
     private int distanceInKm;
     private int bill;
 
     @Enumerated(EnumType.STRING)
-    private TripStatus tripStatus;
+    private TripStatus Status;
 
     @ManyToOne
     @JoinColumn
@@ -28,13 +28,13 @@ public class TripBooking{
     public TripBooking() {
     }
 
-    public TripBooking(int TripBookingId, String fromLoaction, String toLocation, int distanceInKm, int bill, TripStatus tripStatus) {
+    public TripBooking(int TripBookingId, String FromLocation, String toLocation, int distanceInKm, int bill, TripStatus Status) {
         this.TripBookingId = TripBookingId;
-        this.fromLoaction = fromLoaction;
+        this.FromLocation = FromLocation;
         this.toLocation = toLocation;
         this.distanceInKm = distanceInKm;
         this.bill = bill;
-        this.tripStatus = tripStatus;
+        this.Status = Status;
     }
 
     public int getTripBookingId() {
@@ -45,12 +45,12 @@ public class TripBooking{
         this.TripBookingId = TripBookingId;
     }
 
-    public String getFromLoaction() {
-        return fromLoaction;
+    public String getFromLocation() {
+        return FromLocation;
     }
 
-    public void setFromLoaction(String fromLoaction) {
-        this.fromLoaction = fromLoaction;
+    public void setFromLocation(String fromLocation) {
+        FromLocation = fromLocation;
     }
 
     public String getToLocation() {
@@ -77,12 +77,12 @@ public class TripBooking{
         this.bill = bill;
     }
 
-    public TripStatus getTripStatus() {
-        return tripStatus;
+    public TripStatus getStatus() {
+        return Status;
     }
 
-    public void setTripStatus(TripStatus tripStatus) {
-        this.tripStatus = tripStatus;
+    public void setStatus(TripStatus status) {
+        Status = status;
     }
 
     public Driver getDriver() {

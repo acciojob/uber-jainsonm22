@@ -9,8 +9,8 @@ import java.util.List;
 public class Driver{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int driverID;
-    private String mobileNo;
+    private  int DriverId;
+    private String Mobile;
     private String password;
 
     @OneToOne
@@ -23,33 +23,33 @@ public class Driver{
     public Driver() {
     }
 
-    public Driver(String mobileNo, String password) {
-        this.mobileNo = mobileNo;
+    public Driver(String Mobile, String password) {
+        this.Mobile = Mobile;
         this.password = password;
     }
 
-    public Driver(int driverID, String mobileNo, String password, Cab cab, List<TripBooking> tripBookingList) {
-        this.driverID = driverID;
-        this.mobileNo = mobileNo;
+    public Driver(int DriverId, String Mobile, String password, Cab cab, List<TripBooking> tripBookingList) {
+        this.DriverId = DriverId;
+        this.Mobile = Mobile;
         this.password = password;
         this.cab = cab;
         this.tripBookingList = tripBookingList;
     }
 
-    public int getDriverID() {
-        return driverID;
+    public int getDriverId() {
+        return DriverId;
     }
 
-    public void setDriverID(int driverID) {
-        this.driverID = driverID;
+    public void setDriverId(int driverId) {
+        DriverId = driverId;
     }
 
-    public String getMobileNo() {
-        return mobileNo;
+    public String getMobile() {
+        return Mobile;
     }
 
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
+    public void setMobile(String mobile) {
+        Mobile = mobile;
     }
 
     public String getPassword() {

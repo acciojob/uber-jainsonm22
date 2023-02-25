@@ -9,9 +9,9 @@ import java.util.List;
 public class Customer{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cusstomerId;
+    private int CustomerId;
 
-    private String mobilNo;
+    private String Mobile;
     private String password;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -20,33 +20,34 @@ public class Customer{
     public Customer() {
     }
 
-    public Customer(int cusstomerId, String mobilNo, String password, List<TripBooking> tripBookingList) {
-        this.cusstomerId = cusstomerId;
-        this.mobilNo = mobilNo;
+    public Customer(int CustomerId, String Mobile, String password, List<TripBooking> tripBookingList) {
+        this.CustomerId = CustomerId;
+        this.Mobile = Mobile;
         this.password = password;
         this.tripBookingList = tripBookingList;
     }
 
-    public Customer(int cusstomerId, String mobilNo, String password) {
-        this.cusstomerId = cusstomerId;
-        this.mobilNo = mobilNo;
+    public Customer(int CustomerId, String Mobile, String password) {
+        this.CustomerId = CustomerId;
+        this.Mobile = Mobile;
         this.password = password;
     }
 
-    public int getCusstomerId() {
-        return cusstomerId;
+    public int getCustomerId() {
+        return CustomerId;
     }
 
-    public void setCusstomerId(int cusstomerId) {
-        this.cusstomerId = cusstomerId;
+    public void setCustomerId(int customerId) {
+        CustomerId = customerId;
     }
 
-    public String getMobilNo() {
-        return mobilNo;
+
+    public String getMobile() {
+        return Mobile;
     }
 
-    public void setMobilNo(String mobilNo) {
-        this.mobilNo = mobilNo;
+    public void setMobile(String mobile) {
+        Mobile = mobile;
     }
 
     public String getPassword() {
