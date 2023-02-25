@@ -11,7 +11,7 @@ public class Customer{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int CustomerId;
 
-    private String Mobile;
+    private String mobile;
     private String password;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
@@ -20,16 +20,16 @@ public class Customer{
     public Customer() {
     }
 
-    public Customer(int CustomerId, String Mobile, String password, List<TripBooking> tripBookingList) {
+    public Customer(int CustomerId, String mobile, String password, List<TripBooking> tripBookingList) {
         this.CustomerId = CustomerId;
-        this.Mobile = Mobile;
+        this.mobile = mobile;
         this.password = password;
         this.tripBookingList = tripBookingList;
     }
 
-    public Customer(int CustomerId, String Mobile, String password) {
+    public Customer(int CustomerId, String mobile, String password) {
         this.CustomerId = CustomerId;
-        this.Mobile = Mobile;
+        this.mobile = mobile;
         this.password = password;
     }
 
@@ -43,11 +43,11 @@ public class Customer{
 
 
     public String getMobile() {
-        return Mobile;
+        return mobile;
     }
 
     public void setMobile(String mobile) {
-        Mobile = mobile;
+        mobile = mobile;
     }
 
     public String getPassword() {

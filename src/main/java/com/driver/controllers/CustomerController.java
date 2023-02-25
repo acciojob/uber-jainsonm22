@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	CustomerServiceImpl customerService;
+	CustomerService customerService;
 	@PostMapping("/register")
 	public ResponseEntity<Void> registerCustomer(@RequestBody Customer customer){
 		customerService.register(customer);
