@@ -4,8 +4,7 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="admin")
-
+@Table
 public class Admin  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

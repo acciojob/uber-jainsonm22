@@ -9,53 +9,20 @@ import java.util.List;
 public class Customer{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int CustomerId;
+    private int customerId;
 
     private String mobile;
     private String password;
 
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<TripBooking> tripBookingList =new ArrayList<>();
+    List<TripBooking> tripBookingList = new ArrayList<>();
 
-    public Customer() {
-    }
-
-    public Customer(int CustomerId, String mobile, String password, List<TripBooking> tripBookingList) {
-        this.CustomerId = CustomerId;
+    public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookingList) {
+        this.customerId = customerId;
         this.mobile = mobile;
         this.password = password;
         this.tripBookingList = tripBookingList;
-    }
-
-    public Customer(int CustomerId, String mobile, String password) {
-        this.CustomerId = CustomerId;
-        this.mobile = mobile;
-        this.password = password;
-    }
-
-    public int getCustomerId() {
-        return CustomerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        CustomerId = customerId;
-    }
-
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        mobile = mobile;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public List<TripBooking> getTripBookingList() {
@@ -64,5 +31,38 @@ public class Customer{
 
     public void setTripBookingList(List<TripBooking> tripBookingList) {
         this.tripBookingList = tripBookingList;
+    }
+
+    public Customer(int customerId, String mobile, String password) {
+        this.customerId = customerId;
+        this.mobile = mobile;
+        this.password = password;
+    }
+
+    public Customer() {
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
