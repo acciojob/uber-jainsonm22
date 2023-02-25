@@ -9,7 +9,7 @@ public class Cab{
     private int id;
 
     private int perKmRate;
-    private boolean isAvailable;
+    private boolean available;
 
     @OneToOne(mappedBy = "cab" , cascade = CascadeType.ALL)
     private Driver driver;
@@ -21,10 +21,10 @@ public class Cab{
         this.perKmRate = perKmRate;
     }
 
-    public Cab(int id, int perKmRate, boolean isAvailable, Driver driver) {
+    public Cab(int id, int perKmRate, boolean available, Driver driver) {
         this.id = id;
         this.perKmRate = perKmRate;
-        this.isAvailable = isAvailable;
+        this.available = available;
         this.driver = driver;
     }
 
@@ -44,12 +44,12 @@ public class Cab{
         this.perKmRate = perKmRate;
     }
 
-    public boolean getIsAvailable() {
-        return isAvailable;
+    public boolean getAvailable() {
+        return available;
     }
 
-    public void setIsAvailable(boolean available) {
-        isAvailable = available;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     public Driver getDriver() {
